@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>FtryML</title>
   <link rel="stylesheet" type="text/css" href="./style.css?v=${version}" />
+  <link href="./lib/cropper.css" rel="stylesheet">
 </head>
+
 <body>
   <div class="app">
     <div class="header">
@@ -16,13 +19,20 @@
     </div>
     <div class="content">
       <div class="upload-box">
+        <div>
+          <img id="image" src="./assests/pictures.jpg" />
+        </div>
         <span>
           <i class="upload-icon">UPLOAD</i>
         </span>
-        <span><a href="javascript:void(0)">点击上传图片</a></span>
+        <span>
+          <a href="javascript:void(0)">点击上传图片</a>
+        </span>
       </div>
     </div>
   </div>
+  <script src="./lib/cropper.js"></script>
   <script src="./index.js?v=${version}"></script>
 </body>
+
 </html>

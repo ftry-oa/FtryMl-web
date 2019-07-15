@@ -50,3 +50,7 @@ html, body {
 .upload-icon:hover {
     background-color: aquamarine;
 }
+
+img {
+    max-width: 100%;
+}
