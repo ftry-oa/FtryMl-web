@@ -18,19 +18,29 @@
       </div>
     </div>
     <div class="content">
-      <div class="upload-box">
-        <div>
-          <img id="image" src="./assests/pictures.jpg" />
-        </div>
-        <span>
-          <i class="upload-icon">UPLOAD</i>
-        </span>
-        <span>
-          <a href="javascript:void(0)">点击上传图片</a>
-        </span>
+      <!-- upload-btn start -->
+      <div class="upload-outerbox">
+        <i class="upload-icon">上传</i>
+        <input type="file" class="file-btn" id="file-input" />
       </div>
+      <!-- upload-btn end -->
+      <!-- preview start -->
+      <div class="preview-outerbox">
+          <div class="upload-box clearfix">
+              <div class="image-box">
+                <img id="image" src="./assests/pictures.jpg" />
+              </div>
+              <div class="preview-box">
+              </div>
+            </div>
+            <div class="bottom-box">
+              <button type="button" id="submit-btn" class="btn primary">提交</button>
+            </div>
+      </div>
+      <!-- preview end -->
     </div>
   </div>
+  <script src="./lib/jquery-1.12.4.js"></script>
   <script src="./lib/cropper.js"></script>
   <script src="./index.js?v=${version}"></script>
 </body>

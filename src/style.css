@@ -6,6 +6,15 @@ html, body {
     font-size: 14px;
     /* height: 100%; */
 }
+.clearfix::after {
+    display: block;
+    content: ' ';
+    height: 0;
+    clear: both;
+}
+.clearfix {
+    zoom: 1;
+}
 .app {
     color: #111;
     /* background-color: #fafafb;
@@ -18,7 +27,7 @@ html, body {
 }
 .header {
     width: 100%;
-    height: 220px;
+    height: 180px;
     background-color: #29c6cd;
 }
 .header-content {
@@ -28,29 +37,88 @@ html, body {
     padding-top: 60px;
 }
 .upload-box {
-    height: 300px;
-    padding-top: 40px;
+    height: 340px;
     text-align: center;
 }
-.upload-box span {
-    display: block;
-    margin-top: 16px;
+.upload-outerbox {
+    position: relative;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: right;
 }
 .upload-icon {
     display: inline-block;
-    width: 80px;
-    height: 80px;
+    width: 40px;
+    height: 40px;
     color: #fff;
-    line-height: 80px;
+    line-height: 40px;
     font-style: normal;
     background-color: #29c6cd;
     border-radius: 50%;
     cursor: pointer;
+    text-align: center;
 }
 .upload-icon:hover {
     background-color: aquamarine;
 }
+.file-btn {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    top: 20px;
+    right: 0;
+    cursor: pointer;
+    background-color: red;
+    opacity: 0;
+    z-index: 10;
+}
+.file-btn:hover{
+    background-color: red;
+}
+.file-btn:focus,
+.file-btn:active {
+    outline: none;
+}
 
 img {
     max-width: 100%;
+}
+
+.image-box {
+    float: left;
+    width: 55%;
+}
+.preview-box {
+    float: left;
+    max-width: 40%;
+    width: 40%;
+    height: 100%;
+    margin-left: 5%;
+    overflow: hidden;
+}
+
+.bottom-box {
+    margin-top: 20px;
+}
+
+.btn {
+    padding: 0 16px;
+    font-size: 14px;
+    line-height: 32px;
+    border-radius: 0;
+    cursor: pointer;
+    background-color: #fff;
+}
+.btn:focus,
+.btn:active {
+    outline: none;
+}
+.primary {
+    color: #fff;
+    border: none;
+    background-color: #29c6cd;
+}
+.primary:hover {
+    background-color: aqua;
 }
