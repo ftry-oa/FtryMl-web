@@ -9,7 +9,11 @@ const baseDir = './src'
 
 var server = http.createServer(function (request, response) {
   const urlObject = url.parse(request.url)
-  const fileName = path.join(__dirname, baseDir + urlObject.pathname)
+  let pathname = urlObject.pathname
+  if (!pathname || pathname === '/') {
+    pathname = '/index.html'
+  }
+  const fileName = path.join(__dirname, baseDir + pathname)
   // 文件读取
   fs.readFile(fileName, 'binary', function (err, data) {
     if (err) {

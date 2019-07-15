@@ -1,0 +1,24 @@
+{
+  "name": "ftryml-web",
+  "version": "1.0.0",
+  "description": "FtryMl-web",
+  "main": "config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "build": "node ./build/prod.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ftry-oa/FtryMl-web.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ftry-oa/FtryMl-web/issues"
+  },
+  "homepage": "https://github.com/ftry-oa/FtryMl-web#readme",
+  "dependencies": {
+    "rimraf": "^2.6.3"
+  }
+}
