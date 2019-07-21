@@ -8,7 +8,7 @@ const initCropper = function (image) {
     cropper = new Cropper(image, {
         aspectRatio: 16 / 9,
         preview: document.querySelectorAll('.preview-box'),
-        crop(event    ) {
+        crop(event) {
           console.log(event.detail.x);
           console.log(event.detail.y);
           console.log(event.detail.width);
@@ -37,22 +37,22 @@ document.getElementById('file-input').addEventListener('change', function (e) {
 document.getElementById('submit-btn').addEventListener('click', function () {
     cropper.getCroppedCanvas().toBlob((blob) => {
         console.log('@@@blob', blob)
-        // const formData = new FormData();
+        const formData = new FormData();
       
-        // formData.append('croppedImage', blob);
+        formData.append('image', blob);
       
-        // // Use `jQuery.ajax` method
-        // $.ajax('/path/to/upload', {
-        //   method: "POST",
-        //   data: formData,
-        //   processData: false,
-        //   contentType: false,
-        //   success() {
-        //     console.log('Upload success');
-        //   },
-        //   error() {
-        //     console.log('Upload error');
-        //   },
-        // });
+        // Use `jQuery.ajax` method
+        $.ajax('/uploadFileJson', {
+          method: "POST",
+          data: formData,
+          processData: false,
+          contentType: false,
+          success() {
+            console.log('Upload success');
+          },
+          error() {
+            console.log('Upload error');
+          },
+        });
       });
 })
