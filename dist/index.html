@@ -1,13 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>FtryML</title>
+  <link rel="stylesheet" type="text/css" href="./style.css?v=2.0" />
+  <link href="./lib/cropper.css" rel="stylesheet">
 </head>
+
 <body>
-  <div class="root"></div>
+  <div class="app">
+    <div class="header">
+      <div class="content header-content">
+        <h1>æ°å­è¯å«-kNN</h1>
+      </div>
+    </div>
+    <div class="content">
+      <!-- upload-btn start -->
+      <div class="upload-outerbox">
+        <i class="upload-icon">ä¸ä¼ </i>
+        <input type="file" class="file-btn" id="file-input" />
+      </div>
+      <!-- upload-btn end -->
+      <!-- preview start -->
+      <div class="preview-outerbox">
+          <div class="upload-box clearfix">
+              <div class="image-box">
+                <img id="image" src="./assests/5.jpg" />
+              </div>
+              <div class="preview-box">
+              </div>
+            </div>
+            <div class="middle-box">
+              <span class="icon-box ev-rotate-box" data-type="back" title="ååæè½¬">
+                <i class="rotate-back icon"></i>
+              </span>
+              <span class="icon-box ev-rotate-box" data-type="go" title="ååæè½¬">
+                <i class="rotate-go icon"></i>
+              </span>
+            </div>
+            <div class="bottom-box">
+              <button type="button" id="submit-btn" class="btn primary submit-btn">
+                <span class="loading loader-02"></span>
+                æäº¤
+              </button>
+            </div>
+      </div>
+      <!-- preview end -->
+    </div>
+  </div>
+  <script src="./lib/jquery-1.12.4.js"></script>
+  <script src="./lib/jquery.cookie.js"></script>
+  <script src="./lib/cropper.js"></script>
   <script src="./index.js?v=2.0"></script>
 </body>
+
 </html>

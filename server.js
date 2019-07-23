@@ -1,17 +1,25 @@
-var http = require('http')
-var url = require('url')
-var path = require('path')
-var fs = require('fs')
-var config = require('./config')
-var utils = require('./build/utils')
+const http = require('http')
+const url = require('url')
+const path = require('path')
+const fs = require('fs')
+const config = require('./config')
+const utils = require('./build/utils')
+const httpProxy = require('http-proxy')
 
 const baseDir = './src'
+const target = 'http://127.0.0.1:8000'
+
+const proxy = httpProxy.createProxyServer({})
 
 var server = http.createServer(function (request, response) {
   const urlObject = url.parse(request.url)
   let pathname = urlObject.pathname
   if (!pathname || pathname === '/') {
     pathname = '/index.html'
+  }
+  if (pathname.indexOf('upload') !== -1 || pathname.indexOf('admin') !== -1) {
+    proxy.web(request, response, { target, })
+    return
   }
   const fileName = path.join(__dirname, baseDir + pathname)
   // 文件读取

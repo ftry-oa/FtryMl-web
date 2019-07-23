@@ -18,7 +18,9 @@
     "url": "https://github.com/ftry-oa/FtryMl-web/issues"
   },
   "homepage": "https://github.com/ftry-oa/FtryMl-web#readme",
-  "dependencies": {
+  "dependencies": {},
+  "devDependencies": {
+    "http-proxy": "^1.17.0",
     "rimraf": "^2.6.3"
   }
 }

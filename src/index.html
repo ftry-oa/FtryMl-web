@@ -28,19 +28,31 @@
       <div class="preview-outerbox">
           <div class="upload-box clearfix">
               <div class="image-box">
-                <img id="image" src="./assests/pictures.jpg" />
+                <img id="image" src="./assests/5.jpg" />
               </div>
               <div class="preview-box">
               </div>
             </div>
+            <div class="middle-box">
+              <span class="icon-box ev-rotate-box" data-type="back" title="向后旋转">
+                <i class="rotate-back icon"></i>
+              </span>
+              <span class="icon-box ev-rotate-box" data-type="go" title="向前旋转">
+                <i class="rotate-go icon"></i>
+              </span>
+            </div>
             <div class="bottom-box">
-              <button type="button" id="submit-btn" class="btn primary">提交</button>
+              <button type="button" id="submit-btn" class="btn primary submit-btn">
+                <span class="loading loader-02"></span>
+                提交
+              </button>
             </div>
       </div>
       <!-- preview end -->
     </div>
   </div>
   <script src="./lib/jquery-1.12.4.js"></script>
+  <script src="./lib/jquery.cookie.js"></script>
   <script src="./lib/cropper.js"></script>
   <script src="./index.js?v=${version}"></script>
 </body>
