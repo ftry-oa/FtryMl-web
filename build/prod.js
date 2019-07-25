@@ -48,7 +48,10 @@ const handleDir = (dest, filePath) => {
 
 const writeFile = (filePath, src, dest) => {
   const absoulteFilePath = path.resolve(__dirname, src, filePath)
-  let data = fs.readFileSync(absoulteFilePath, 'binary')
+  // let data = fs.readFileSync(absoulteFilePath, 'binary')
+  let data = fs.readFileSync(absoulteFilePath, {
+    encoding: 'UTF8',
+  })
   data = utils.replace(data, config)
   handleDir(dest, filePath)
   fs.writeFileSync(path.resolve(__dirname, dest, filePath), data)

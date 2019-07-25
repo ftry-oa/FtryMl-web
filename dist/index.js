@@ -4,7 +4,7 @@ const image = document.getElementById('image');
 const bootbox = {}
 bootbox.message = (title, content, duration) => {
   const $bootbox = $(`<div class="bootbox message">
-                        <span class="close">Ã</span>
+                        <span class="close">×</span>
                         <span>${title}</span>
                         <p>${content}</p>
                       </div>`)
@@ -104,7 +104,7 @@ document.getElementById('submit-btn').addEventListener('click', function () {
 
 
     // Use `jQuery.ajax` method
-    $.ajax('/uploadFileJson', {
+    $.ajax('/ftryml/uploadFileJson', {
       method: "POST",
       data: formData,
       processData: false,
@@ -114,7 +114,7 @@ document.getElementById('submit-btn').addEventListener('click', function () {
         submiter.loaded()
         res = JSON.parse(res)
         if (res.success) {
-          bootbox.message('é¢æµç»æä¸º:', res.data)
+          bootbox.message('预测结果为:', res.data)
         }
       },
       error(err) {

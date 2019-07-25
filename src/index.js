@@ -104,7 +104,7 @@ document.getElementById('submit-btn').addEventListener('click', function () {
 
 
     // Use `jQuery.ajax` method
-    $.ajax('/uploadFileJson', {
+    $.ajax('/ftryml/uploadFileJson', {
       method: "POST",
       data: formData,
       processData: false,

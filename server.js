@@ -17,7 +17,7 @@ var server = http.createServer(function (request, response) {
   if (!pathname || pathname === '/') {
     pathname = '/index.html'
   }
-  if (pathname.indexOf('upload') !== -1 || pathname.indexOf('admin') !== -1) {
+  if (pathname.indexOf('ftryml') !== -1 || pathname.indexOf('admin') !== -1) {
     proxy.web(request, response, { target, })
     return
   }
