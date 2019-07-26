@@ -1,6 +1,7 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 html, body {
     font-size: 14px;
@@ -82,9 +83,20 @@ img {
 }
 
 .image-box {
+    position: relative;
     float: left;
     width: 55%;
     height: 260px;
+    border: 1px solid #ccc;
+}
+.image-box img {
+    display: none;
+    max-height: 260px;
+}
+.img-loading {
+    position: absolute;
+    top: 50px;
+    color: #ccc;
 }
 .preview-box {
     float: left;
@@ -130,11 +142,15 @@ img {
     background-color: #fff;
     border-radius: 2px;
     z-index: 999;
+    box-shadow:2px 2px 5px #333333;
+}
+.bootbox.set-top {
+    top: 180px;
 }
 .bootbox p {
     padding: 12px 0;
     text-align: center;
-    font-size: 40px;
+    font-size: 24px;
 }
 .bootbox .close {
     position: absolute;
@@ -154,18 +170,18 @@ img {
     background-color: #29c6cd;
 }
 
-.loader-02 {
+.ftryml-loader {
     display: inline-block;
-    width: 12px;
-    height: 12px;
+    width: 16px;
+    height: 16px;
     border: .2em solid transparent;
     border-left-color: currentcolor;
     border-right-color: currentcolor;
     border-radius: 50%;
-    -webkit-animation: 1s loader-02 linear infinite;
-    animation: 1s loader-02 linear infinite;
+    -webkit-animation: 1s ftryml-loader linear infinite;
+    animation: 1s ftryml-loader linear infinite;
 }
-@-webkit-keyframes loader-02 {
+@-webkit-keyframes ftryml-loader {
     0% {
         -webkit-transform: rotate(0deg);
         transform: rotate(0deg);
@@ -175,7 +191,7 @@ img {
         transform: rotate(360deg);
     }
 }
-@keyframes loader-02 {
+@keyframes ftryml-loader {
     0% {
         -webkit-transform: rotate(0deg);
         transform: rotate(0deg);
