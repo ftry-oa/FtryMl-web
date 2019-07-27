@@ -1,6 +1,7 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 html, body {
     font-size: 14px;
@@ -82,9 +83,20 @@ img {
 }
 
 .image-box {
+    position: relative;
     float: left;
     width: 55%;
     height: 260px;
+    border: 1px solid #ccc;
+}
+.image-box img {
+    display: none;
+    max-height: 260px;
+}
+.img-loading {
+    position: absolute;
+    top: 50px;
+    color: #ccc;
 }
 .preview-box {
     float: left;
@@ -130,11 +142,15 @@ img {
     background-color: #fff;
     border-radius: 2px;
     z-index: 999;
+    box-shadow:2px 2px 5px #333333;
+}
+.bootbox.set-top {
+    top: 180px;
 }
 .bootbox p {
     padding: 12px 0;
     text-align: center;
-    font-size: 40px;
+    font-size: 14px;
 }
 .bootbox .close {
     position: absolute;
@@ -146,6 +162,10 @@ img {
 .bootbox .close:hover {
     color: #ccc;
 }
+.bootbox.message  p {
+    padding: 6px 0;
+    text-align: left;
+}
 .disabled {
     cursor: not-allowed;
     opacity: 0.8;
@@ -154,18 +174,18 @@ img {
     background-color: #29c6cd;
 }
 
-.loader-02 {
+.ftryml-loader {
     display: inline-block;
-    width: 12px;
-    height: 12px;
+    width: 16px;
+    height: 16px;
     border: .2em solid transparent;
     border-left-color: currentcolor;
     border-right-color: currentcolor;
     border-radius: 50%;
-    -webkit-animation: 1s loader-02 linear infinite;
-    animation: 1s loader-02 linear infinite;
+    -webkit-animation: 1s ftryml-loader linear infinite;
+    animation: 1s ftryml-loader linear infinite;
 }
-@-webkit-keyframes loader-02 {
+@-webkit-keyframes ftryml-loader {
     0% {
         -webkit-transform: rotate(0deg);
         transform: rotate(0deg);
@@ -175,7 +195,7 @@ img {
         transform: rotate(360deg);
     }
 }
-@keyframes loader-02 {
+@keyframes ftryml-loader {
     0% {
         -webkit-transform: rotate(0deg);
         transform: rotate(0deg);
@@ -265,4 +285,60 @@ img {
   .rotate-go.icon:hover,
   .rotate-go.icon:hover:before {
     color: #ccc;
+  }
+
+  /* message-icon */
+  .bootbox.message .close {
+      top: 6px;
+  }
+  .bootbox.message p {
+      /* color: green; */
+  }
+  .message-icon {
+      position: relative;
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border: 1px solid transparent;
+      border-radius: 59%;
+      vertical-align: -5px;
+  }
+  .message-icon.success {
+      border-color: green;
+  }
+  .message-icon.success::after {
+      content: ' ';
+      width: 5px;
+      height: 10px;
+      position: absolute;
+      top: 2px;
+      left: 5px;
+      border-bottom: 2px solid green;
+      border-right: 2px solid green;
+      transform: rotate(22deg);
+  }
+  .message-icon.error {
+      width: 21px;
+      height: 21px;
+      border-color: red;
+  }
+  .message-icon.error::before {
+    content: ' ';
+    position: absolute;
+    width: 0;
+    height: 14px;
+    border-right: 1px solid red;
+    top: 3px;
+    left: 9px;
+    transform: rotate(42deg);
+  }
+  .message-icon.error::after {
+    content: ' ';
+    position: absolute;
+    width: 0;
+    height: 14px;
+    border-right: 1px solid red;
+    top: 3px;
+    left: 9px;
+    transform: rotate(-42deg);
   }

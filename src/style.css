@@ -150,7 +150,7 @@ img {
 .bootbox p {
     padding: 12px 0;
     text-align: center;
-    font-size: 24px;
+    font-size: 14px;
 }
 .bootbox .close {
     position: absolute;
@@ -161,6 +161,10 @@ img {
 }
 .bootbox .close:hover {
     color: #ccc;
+}
+.bootbox.message  p {
+    padding: 6px 0;
+    text-align: left;
 }
 .disabled {
     cursor: not-allowed;
@@ -281,4 +285,60 @@ img {
   .rotate-go.icon:hover,
   .rotate-go.icon:hover:before {
     color: #ccc;
+  }
+
+  /* message-icon */
+  .bootbox.message .close {
+      top: 6px;
+  }
+  .bootbox.message p {
+      /* color: green; */
+  }
+  .message-icon {
+      position: relative;
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border: 1px solid transparent;
+      border-radius: 59%;
+      vertical-align: -5px;
+  }
+  .message-icon.success {
+      border-color: green;
+  }
+  .message-icon.success::after {
+      content: ' ';
+      width: 5px;
+      height: 10px;
+      position: absolute;
+      top: 2px;
+      left: 5px;
+      border-bottom: 2px solid green;
+      border-right: 2px solid green;
+      transform: rotate(22deg);
+  }
+  .message-icon.error {
+      width: 21px;
+      height: 21px;
+      border-color: red;
+  }
+  .message-icon.error::before {
+    content: ' ';
+    position: absolute;
+    width: 0;
+    height: 14px;
+    border-right: 1px solid red;
+    top: 3px;
+    left: 9px;
+    transform: rotate(42deg);
+  }
+  .message-icon.error::after {
+    content: ' ';
+    position: absolute;
+    width: 0;
+    height: 14px;
+    border-right: 1px solid red;
+    top: 3px;
+    left: 9px;
+    transform: rotate(-42deg);
   }

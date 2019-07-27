@@ -28,7 +28,8 @@
       <div class="preview-outerbox">
           <div class="upload-box clearfix">
               <div class="image-box">
-                <img id="image" src="./assests/5.jpg" />
+                <img id="image" src="#" />
+                <span class="img-loading loading ftryml-loader"></span>
               </div>
               <div class="preview-box">
               </div>
@@ -43,7 +44,7 @@
             </div>
             <div class="bottom-box">
               <button type="button" id="submit-btn" class="btn primary submit-btn">
-                <span class="loading loader-02"></span>
+                <span class="loading ftryml-loader"></span>
                 提交
               </button>
             </div>
@@ -51,10 +52,11 @@
       <!-- preview end -->
     </div>
   </div>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
   <script src="./lib/jquery-1.12.4.js"></script>
   <script src="./lib/jquery.cookie.js"></script>
   <script src="./lib/cropper.js"></script>
-  <script src="./index.js?v=2.0"></script>
+  <script type="text/babel" src="./index.js?v=2.0"></script>
 </body>
 
 </html>

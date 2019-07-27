@@ -3,10 +3,28 @@ $(document).ready(function(){
   const image = document.getElementById('image');
 
   const bootbox = {}
-  bootbox.message = (title, content, options) => {
+  bootbox.commonBehavior = ($bootbox, { duration }) => {
+    const createTimeout = () => {
+      return setTimeout(() => {
+        $bootbox.remove()
+      }, duration)
+    }
+    let timer = createTimeout()
+    $bootbox.hover(function () {
+      timer && clearTimeout(timer)
+      timer = null
+    }, function () {
+      timer = createTimeout()
+    })
+
+    $bootbox.find('.close').bind('click', function () {
+      $(this).closest('.bootbox').remove()
+    })
+  }
+  bootbox.modal = (title, content, options) => {
     options = options || {}
     const { bootboxClassName, duration = 3000 } = options
-    const $bootbox = $(`<div class="bootbox message ${bootboxClassName}">
+    const $bootbox = $(`<div class="bootbox modal ${bootboxClassName}">
                           <span class="close">×</span>
                           <span>${title}</span>
                           <p>
@@ -15,30 +33,24 @@ $(document).ready(function(){
                           </p>
                         </div>`)
     $('body').append($bootbox)
-    // duration = duration || 3000
-    const createTimeout = () => {
-      return setTimeout(() => {
-        $bootbox.remove()
-      }, duration)
-    }
-    // let timer = createTimeout()
 
-    $bootbox.find('.close').bind('click', function () {
-      $(this).closest('.bootbox').remove()
-    })
-    // $bootbox.hover(function () {
-    //   timer && clearTimeout(timer)
-    //   timer = null
-    // }, function () {
-    //   timer = createTimeout()
-    // })
+    bootbox.commonBehavior($bootbox, { duration })
   }
 
-  bootbox.message('预测结果为:', '<span style="font-size:40px;">5</span>', {
-    bootboxClassName: 'set-top'
-  })
+  bootbox.message = (content, { type = 'success', duration = 3000, bootboxClassName = '' }) => {
+    const $bootbox = $(`<div class="bootbox message ${bootboxClassName}">
+                          <span class="close">×</span>
+                          <p>
+                            <i class="message-icon ${type}"></i>
+                            ${content}
+                          </p>
+                        </div>`)
+    $('body').append($bootbox)
 
-  cropper = null
+    bootbox.commonBehavior($bootbox, { duration })
+  }
+
+  let cropper = null
 
   const initCropper = function (image) {
     cropper && cropper.destroy()
@@ -129,14 +141,16 @@ $(document).ready(function(){
           submiter.loaded()
           res = JSON.parse(res)
           if (res.success) {
-            bootbox.message('预测结果为:', res.data, {
+            bootbox.modal('预测结果为:', `<span style="font-size:40px;">${res.data}</span>`, {
               bootboxClassName: 'set-top'
             })
+            return
           }
+          bootbox.message(res.data || res.msg || '预测失败', {type: 'error'})
         },
         error(err) {
           submiter.loaded()
-          console.log('Upload error', err);
+          bootbox.message(err.data || err.msg || '预测失败', {type: 'error'})
         },
       });
     });
