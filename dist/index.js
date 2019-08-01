@@ -71,6 +71,7 @@ $(document).ready(function(){
   const $image = $('#image')
   $image.attr('src', './assests/5.jpg')
   $image.load(function(){
+    $('.img-loading').hide()
     $image.css('display', 'block')
     initCropper(image)
   })
