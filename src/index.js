@@ -1,5 +1,4 @@
 $(document).ready(function(){
-
   const image = document.getElementById('image');
 
   const bootbox = {}

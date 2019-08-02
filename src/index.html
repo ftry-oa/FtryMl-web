@@ -3,11 +3,16 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>FtryML</title>
-  <link rel="stylesheet" type="text/css" href="./style.css?v=${version}" />
+  <!-- <link rel="stylesheet" type="text/css" href="./style.css?v=${version}" /> -->
+  <link rel="stylesheet/less" type="text/css" href="./less/common.less" />
+  <link rel="stylesheet/less" type="text/css" href="./less/mobile.less" />
   <link href="./lib/cropper.css" rel="stylesheet">
+  <script src="./lib/less.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  <script type="text/babel" src="./common/preInit.js?v=${version}"></script>
 </head>
 
 <body>
@@ -19,7 +24,7 @@
     </div>
     <div class="content">
       <!-- upload-btn start -->
-      <div class="upload-outerbox">
+      <div class="upload-outerbox clearfix">
         <i class="upload-icon">上传</i>
         <input type="file" class="file-btn" id="file-input" />
       </div>
@@ -34,7 +39,7 @@
               <div class="preview-box">
               </div>
             </div>
-            <div class="middle-box">
+            <div class="middle-box clearfix">
               <span class="icon-box ev-rotate-box" data-type="back" title="向后旋转">
                 <i class="rotate-back icon"></i>
               </span>
@@ -52,10 +57,11 @@
       <!-- preview end -->
     </div>
   </div>
-  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  
   <script src="./lib/jquery-1.12.4.js"></script>
   <script src="./lib/jquery.cookie.js"></script>
   <script src="./lib/cropper.js"></script>
+  <script type="text/babel" src="./common/index.js?v=${version}"></script>
   <script type="text/babel" src="./index.js?v=${version}"></script>
 </body>
 

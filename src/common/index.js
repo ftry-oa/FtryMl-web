@@ -1,2 +1,6 @@
 
-export const common = '1.1'
+
+
+$(document).ready(function(){
+  console.log('@@@@isMobile', window.utils.isMobile)
+})
