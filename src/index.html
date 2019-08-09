@@ -6,16 +6,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>FtryML</title>
-  <!-- <link rel="stylesheet" type="text/css" href="./style.css?v=${version}" /> -->
-  <link rel="stylesheet/less" type="text/css" href="./less/common.less" />
-  <link rel="stylesheet/less" type="text/css" href="./less/mobile.less" />
+  <link rel="stylesheet/less" type="text/css" href="./less/common.less?v=${version}" />
+  <link rel="stylesheet/less" type="text/css" href="./less/style.less?v=${version}" />
+  <link rel="stylesheet/less" type="text/css" href="./less/mobile.less?v=${version}" />
   <link href="./lib/cropper.css" rel="stylesheet">
+  <script type="text/babel" src="./common/preInit.js?v=${version}"></script>
   <script src="./lib/less.js"></script>
   <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
-  <script type="text/babel" src="./common/preInit.js?v=${version}"></script>
 </head>
 
-<body>
+<body class=" ">
+  <input type="hidden" id="cur-version" value="${version}"/>
   <div class="app">
     <div class="header">
       <div class="content header-content">

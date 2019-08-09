@@ -1,3 +1,5 @@
+const ip = require('ip')
+
 const reg = /\$\{(\S+)\}/gi
 
 const replace = (data, context) => {
@@ -25,7 +27,13 @@ const isProxyApi = (proxyMap, pathname) => {
   }
 }
 
+const getIpAddr = () => {
+  console.log('@@@-', ip.address())
+  return ip.address()
+}
+
 module.exports = {
   replace,
   isProxyApi,
+  getIpAddr,
 }

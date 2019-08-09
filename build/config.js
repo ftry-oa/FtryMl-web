@@ -1,6 +1,8 @@
 
 
-const target = 'http://127.0.0.1:8000'
+const utils = require('./utils')
+
+const target = `http://${getIpAddr()}:8000`
 
 module.exports = {
   version: '3.0',

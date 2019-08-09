@@ -25,7 +25,7 @@ $(document).ready(function(){
     const { bootboxClassName, duration = 3000 } = options
     const $bootbox = $(`<div class="bootbox modal ${bootboxClassName}">
                           <span class="close">×</span>
-                          <span>${title}</span>
+                          <span class="title">${title}</span>
                           <p>
                             <i class=""></i>
                             ${content}
