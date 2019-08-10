@@ -34,4 +34,4 @@ var server = http.createServer(function (request, response) {
   })
 })
 server.listen(config.port)
-console.log(`server start at http://localhost:${config.port}`)
+console.log(`server start at http://${utils.getIPAdress()}:${config.port}`)
