@@ -1,4 +1,5 @@
-const ip = require('ip')
+
+const os = require('os')
 
 const reg = /\$\{(\S+)\}/gi
 
@@ -27,13 +28,22 @@ const isProxyApi = (proxyMap, pathname) => {
   }
 }
 
-const getIpAddr = () => {
-  console.log('@@@-', ip.address())
-  return ip.address()
+///////////////////获取本机ip///////////////////////
+function getIPAdress() {
+    var interfaces = os.networkInterfaces();
+    for (var devName in interfaces) {
+        var iface = interfaces[devName];
+        for (var i = 0; i < iface.length; i++) {
+            var alias = iface[i];
+            if (alias.family === 'IPv4' && alias.address !== '127.0.0.1' && !alias.internal) {
+                return alias.address;
+            }
+        }
+    }
 }
 
 module.exports = {
   replace,
   isProxyApi,
-  getIpAddr,
+  getIPAdress,
 }
